@@ -1,0 +1,408 @@
+@charset "UTF-8";
+@font-face {
+  font-family: customFont;
+  src: url(./fonts/Raleway-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: customFont;
+  src: url(./fonts/Raleway-VariableFont_wght.ttf);
+}
+.app-popover {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+  opacity: 1;
+  animation: _opacity 0.6s ease-out;
+}
+@keyframes _opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app-popover__overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(61, 61, 61, 0.979);
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.app-popover__container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  top: 150px;
+  margin-bottom: 150px;
+  position: relative;
+  background-color: white;
+  outline: 0.0625rem solid white;
+  outline-offset: 0.625rem;
+}
+.app-popover__chisel {
+  display: none;
+  transform: scale(0.7);
+  position: absolute;
+  top: 35rem;
+  left: -25rem;
+  z-index: 1;
+  transition: 0.1s;
+}
+.app-popover__shavings {
+  display: none;
+  transform: scale(0.7);
+  position: absolute;
+  right: -6rem;
+  top: 10rem;
+  z-index: 1;
+  transition: 0.1s;
+}
+.app-popover__close-btn {
+  width: 2rem;
+  height: 2rem;
+  z-index: 5;
+  cursor: pointer;
+  background: transparent;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+[dir=rtl] .app-popover__close-btn, .app-popover__close-btn[dir=rtl] {
+  right: initial;
+  left: 1rem;
+}
+
+.app-popover__close-btn:hover {
+  border: 0.0625rem solid #9f173d;
+  border-radius: 0.3125rem;
+  background-color: rgba(155, 23, 61, 0.1);
+}
+.app-popover__close-btn:hover:focus {
+  border: none;
+  border-radius: 0;
+}
+.app-popover__close-btn:focus {
+  outline: 0.125rem solid #9f173d;
+}
+.app-popover__close-btn::after {
+  content: "✕";
+  color: #9f173d;
+  font: 1rem;
+}
+.app-popover__main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6.25rem 2rem;
+  text-align: center;
+  position: relative;
+}
+.app-popover__main-container::after {
+  content: "";
+  width: 10rem;
+  height: 31.875rem;
+  background-color: transparent;
+  border: 0.625rem solid #f5f5f5;
+  position: absolute;
+  top: -50px;
+  z-index: 1;
+}
+.app-popover__form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 6.25rem 2rem;
+  background-color: #9f173d;
+}
+.app-popover__form-container::after {
+  content: "";
+  width: 10rem;
+  height: 6.875rem;
+  background-color: transparent;
+  border: 0.625rem solid white;
+  position: absolute;
+  bottom: -60px;
+  z-index: 1;
+}
+.app-popover__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.app-popover__text-type-1 {
+  text-transform: uppercase;
+  font-family: customFont;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  z-index: 2;
+}
+.app-popover__text-type-2 {
+  font-size: 1.125rem;
+  font-style: italic;
+  margin: 2.25rem 0;
+}
+.app-popover__text-type-3 {
+  text-transform: uppercase;
+  color: black;
+  font-size: 3.75rem;
+  word-spacing: 9999px;
+  margin-bottom: 5.5rem;
+  z-index: 2;
+}
+.app-popover__text-type-4 {
+  font-family: customFont;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.app-popover__list {
+  text-align: left;
+  margin-top: 2.875rem;
+  margin-left: 2rem;
+}
+[dir=rtl] .app-popover__list, .app-popover__list[dir=rtl] {
+  text-align: right;
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+.app-popover__list li {
+  font-family: customFont;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.app-popover__list li::before {
+  content: "•";
+  color: #9f173d;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
+}
+[dir=rtl] .app-popover__list li::before, .app-popover__list li[dir=rtl]::before {
+  margin-left: 0;
+  margin-right: -1rem;
+}
+
+.app-popover__separator {
+  width: 10rem;
+  border: 1px solid #9f173d;
+  margin: 3.375rem 0;
+}
+.app-popover__form-header {
+  text-transform: uppercase;
+  font-size: 1.875rem;
+  color: white;
+}
+.app-popover__form-subheader {
+  font-family: customFont;
+  font-size: 1.125rem;
+  color: white;
+}
+.app-popover__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app-popover__form-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 1.75rem 0;
+}
+.app-popover__form-fields input {
+  width: 100%;
+  height: 3.625rem;
+  font-family: customFont;
+  margin: 0.3125rem;
+  padding: 0 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.app-popover__form-fields input::-webkit-input-placeholder {
+  font-family: customFont;
+  font-size: 1rem;
+}
+.app-popover__form-fields input:-ms-input-placeholder {
+  font-family: customFont;
+  font-size: 1rem;
+}
+.app-popover__form-fields input::placeholder {
+  font-family: customFont;
+  font-size: 1rem;
+}
+.app-popover__form-fields input:focus {
+  transform: scale(1.05);
+}
+.app-popover__form-fields input[type=submit] {
+  text-transform: uppercase;
+  width: 100%;
+  height: 3.625rem;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .app-popover__content {
+    width: 100%;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .app-popover__content {
+    width: 80%;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .app-popover__chisel {
+    display: block;
+  }
+  .app-popover__shavings {
+    display: block;
+  }
+  .app-popover__container {
+    min-width: 50rem;
+    width: 60%;
+  }
+  .app-popover__form-fields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .app-popover__form-fields input {
+    width: 16.875rem;
+    height: 3.625rem;
+  }
+  .app-popover__form-fields input[type=submit] {
+    width: 8.625rem;
+    height: 3.625rem;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .app-popover__content {
+    width: 60%;
+  }
+}
+@font-face {
+  font-family: customFont;
+  src: url(./fonts/Raleway-VariableFont_wght.ttf);
+}
+.app-popover__form-checkbox {
+  cursor: pointer;
+  width: 80%;
+  display: block;
+  position: relative;
+  color: white;
+  font-family: customFont;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Hides the native input */
+}
+.app-popover__form-checkbox input {
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  /* When the checkbox is checked */
+}
+.app-popover__form-checkbox input:focus ~ .app-popover__checkbox {
+  transform: scale(1.2);
+}
+.app-popover__form-checkbox input:checked ~ .app-popover__checkbox:after {
+  display: block;
+}
+
+/* Creates a custom checkbox */
+.app-popover__checkbox {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  background-color: #9f173d;
+  border: 0.0625rem solid white;
+  /* When the checkbox is not checked */
+}
+[dir=rtl] .app-popover__checkbox, .app-popover__checkbox[dir=rtl] {
+  left: initial;
+  right: -1.5rem;
+}
+
+.app-popover__checkbox:after {
+  content: "✓";
+  position: absolute;
+  display: none;
+  font-size: 0.875rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .app-popover__form-checkbox {
+    width: 65%;
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body,
+html {
+  height: 2500px;
+  max-width: 100%;
+  color: #483f41;
+  position: relative;
+}
+
+body {
+  background-image: url("../img/background_img.jpg");
+  background-size: contain;
+  background-repeat: repeat-y;
+  overflow-x: hidden;
+}
+
+.secondary-color {
+  color: #9f173d;
+}
+
+/*# sourceMappingURL=style.css.map */

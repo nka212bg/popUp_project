@@ -1,0 +1,43 @@
+// sass --watch src/css/style.scss src/css/style.css
+@import "common.scss";
+@import "popover.scss";
+@import "custom-checkbox.scss";
+
+// RESET
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body,
+html {
+  height: 2500px;
+  max-width: 100%;
+  color: #483f41;
+  position: relative;
+}
+
+body {
+  background-image: url("../img/background_img.jpg");
+  background-size: contain;
+  background-repeat: repeat-y;
+  overflow-x: hidden;
+}
+
+.secondary-color {
+  color: $app-popover-secondary-color;
+}

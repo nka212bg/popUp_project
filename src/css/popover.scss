@@ -1,0 +1,334 @@
+@import "common.scss";
+
+$app-popover-button-offset: 1rem;
+
+.#{$block} {
+	@include set-width-height(100%, 100%);
+
+	position: relative;
+  display: none;
+  opacity: 1;
+  animation: _opacity .6s ease-out;
+
+  @keyframes _opacity {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+	&__overlay {
+		@include set-width-height();
+
+		background-color: rgba(61, 61, 61, 0.979);
+		z-index: -1;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&__container {
+		@include flex(column);
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: 90%;
+    top: 150px;
+    margin-bottom: 150px;
+		position: relative;
+		background-color: $app-popover-primary-color;
+		outline: 0.0625rem solid $app-popover-primary-color;
+		outline-offset: 0.625rem;
+	}
+
+	&__chisel {
+		display: none;
+		transform: scale(0.7);
+		position: absolute;
+		top: 35rem;
+		left: -25rem;
+		z-index: 1;
+		transition: .1s;
+	}
+
+	&__shavings {
+		display: none;
+		transform: scale(0.7);
+		position: absolute;
+
+		right: -6rem;
+		top: 10rem;
+		z-index: 1;
+		transition: .1s;
+	}
+
+	&__close-btn {
+		@include set-width-height(2rem, 2rem);
+
+		z-index: 5;
+		cursor: pointer;
+		background: transparent;
+		position: absolute;
+		right: $app-popover-button-offset;
+		top: $app-popover-button-offset;
+
+		@include rtl() {
+			right: initial;
+			left: $app-popover-button-offset;
+		}
+
+		&:hover {
+			border: 0.0625rem solid $app-popover-secondary-color;
+			border-radius: 0.3125rem;
+			background-color: rgba(155, 23, 61, 0.1);
+
+			&:focus {
+				border: none;
+				border-radius: 0;
+			}
+		}
+
+		&:focus {
+			outline: 0.125rem solid $app-popover-secondary-color;
+		}
+
+		&::after {
+			content: "\2715";
+			color: $app-popover-secondary-color;
+			font: 1rem;
+		}
+	}
+
+	&__main-container {
+		@include set-width-height();
+		@include flex(column) {
+			align-items: center;
+		}
+
+		padding: 6.25rem 2rem;
+		text-align: center;
+		position: relative;
+
+		&::after {
+			content: "";
+			@include set-width-height(10rem, 31.875rem);
+
+			background-color: transparent;
+			border: 0.625rem solid $app-popover-grey-color;
+			position: absolute;
+			top: -50px;
+			z-index: 1;
+		}
+	}
+
+	&__form-container {
+		@include set-width-height();
+		@include flex(column) {
+			align-items: center;
+		}
+
+		position: relative;
+		text-align: center;
+		padding: 6.25rem 2rem;
+		background-color: $app-popover-secondary-color;
+
+		&::after {
+			content: "";
+			@include set-width-height(10rem, 6.875rem);
+			background-color: transparent;
+			border: 0.625rem solid $app-popover-primary-color;
+			position: absolute;
+			bottom: -60px;
+			z-index: 1;
+		}
+	}
+
+	&__content {
+		@include flex(column) {
+			align-items: center;
+		}
+		width: 100%;
+	}
+
+	&__text-type {
+		&-1 {
+			@include to-uppercase();
+			font-family: customFont;
+			font-size: 1.125rem;
+			line-height: 1.5;
+			z-index: 2;
+		}
+
+		&-2 {
+			font-size: 1.125rem;
+			font-style: italic;
+			margin: 2.25rem 0;
+		}
+
+		&-3 {
+			@include to-uppercase();
+
+			color: $app-popover-black-color;
+			font-size: 3.75rem;
+			word-spacing: 9999px;
+			margin-bottom: 5.5rem;
+			z-index: 2;
+		}
+
+		&-4 {
+			font-family: customFont;
+			font-size: 1.125rem;
+			line-height: 1.5;
+		}
+	}
+
+	&__list {
+		text-align: left;
+		margin-top: 2.875rem;
+		margin-left: 2rem;
+
+		@include rtl() {
+			text-align: right;
+			margin-left: 0;
+			margin-right: 2rem;
+		}
+	}
+
+	&__list li {
+		font-family: customFont;
+		font-size: 1rem; 
+		margin-bottom: 0.5rem;
+
+		&::before {
+			content: "\2022";
+			color: $app-popover-secondary-color;
+			display: inline-block;
+			width: 1rem;
+			margin-left: -1rem;
+		}
+
+		@include rtl() {
+			&::before {
+				margin-left: 0;
+				margin-right: -1rem;
+			}
+		}
+	}
+
+	&__separator {
+		width: 10rem;
+		border: 1px solid $app-popover-secondary-color;
+		margin: 3.375rem 0;
+	}
+
+	&__form-header {
+		@include to-uppercase();
+
+		font-size: 1.875rem;
+		color: $app-popover-primary-color;
+	}
+
+	&__form-subheader {
+		font-family: customFont;
+		font-size: 1.125rem;
+		color: $app-popover-primary-color;
+	}
+
+	&__form {
+		@include flex(column);
+
+		align-items: center;
+	}
+
+	&__form-fields {
+		@include flex-center() {
+			flex-direction: column;
+		}
+
+		width: 100%;
+		margin: 1.75rem 0;
+
+		input {
+			@include set-width-height(100%, 3.625rem);
+			@include placeholder() {
+				font-family: customFont;
+				font-size: 1rem;
+			}
+
+			font-family: customFont;
+			margin: 0.3125rem;
+			padding: 0 1rem;
+			transition: all 0.2s ease-in-out;
+
+			&:focus {
+				transform: scale(1.05);
+			}
+		}
+
+		input[type="submit"] {
+			@include to-uppercase();
+			@include set-width-height(100%, 3.625rem);
+
+			font-size: 1rem;
+			color: $app-popover-primary-color;
+			background-color: $app-popover-black-color;
+		}
+	}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.#{$block} {
+		&__content {
+			width: 100%;
+		}
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	.#{$block}__content {
+		width: 80%;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	.#{$block} {
+		&__chisel {
+			display: block;
+		}
+
+		&__shavings {
+			display: block;
+		}
+
+		&__container {
+			min-width: 50rem;
+			//   @include set-width-height(60%, fit-content);
+			width: 60%;
+		}
+
+		&__form-fields {
+			@include flex-center() {
+				flex-direction: row;
+			}
+
+			input {
+				@include set-width-height(16.875rem, 3.625rem);
+			}
+
+			input[type="submit"] {
+				@include set-width-height(8.625rem, 3.625rem);
+			}
+		}
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.#{$block}__content {
+		width: 60%;
+	}
+}

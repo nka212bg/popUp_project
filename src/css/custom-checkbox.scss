@@ -1,0 +1,75 @@
+@import "common.scss";
+
+$app-popover-checkbox-size: 15px;
+
+.#{$block}__form-checkbox {
+  cursor: pointer;
+  width: 80%;
+  display: block;
+  position: relative;
+  color: $app-popover-primary-color;
+  font-family: customFont;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* Hides the native input */
+  input {
+    @include set-width-height(0, 0);
+
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      ~ .app-popover__checkbox {
+        transform: scale(1.2);
+      }
+    }
+
+    /* When the checkbox is checked */
+    &:checked {
+      ~ .app-popover__checkbox:after {
+        display: block;
+      }
+    }
+  }
+}
+
+/* Creates a custom checkbox */
+.#{$block}__checkbox {
+  @include set-width-height(
+    $app-popover-checkbox-size,
+    $app-popover-checkbox-size
+  );
+
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  background-color: $app-popover-secondary-color;
+  border: 0.0625rem solid $app-popover-primary-color;
+
+  @include rtl() {
+    left: initial;
+    right: -1.5rem;
+  }
+
+  /* When the checkbox is not checked */
+  &:after {
+    content: "\2713";
+    position: absolute;
+    display: none;
+    font-size: 0.875rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .#{$block}__form-checkbox {
+    width: 65%;
+  }
+}

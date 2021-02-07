@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landin page</title>
+
+  <!-- style -->
+  <link href="./src/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="popover" class="app-popover">
+    <div class="app-popover__overlay"></div>
+    <div class="app-popover__container">
+      <img src="./src/img/chisel.png" alt="chisel" class="app-popover__chisel" id="chisel" />
+      <img src="./src/img/shavings.png" alt="shavings" class="app-popover__shavings" id="shavings" />
+      <button class="app-popover__close-btn" tabindex="0" aria-label="Close popover" onclick="Popover().close()"></button>
+      <div class="app-popover__main-container">
+        <div class="app-popover__content">
+          <div class="app-popover__text-type-1">
+            You are Cordially Invited <br />
+            to the Launch
+          </div>
+          <span class="app-popover__text-type-2">of the</span>
+          <div class="app-popover__text-type-3">New<br><span class="app-popover__text-type-3 secondary-color">Company</span><br>Website</div>
+          <p class="app-popover__text-type-4">
+            Lorem ipsum dolor sit amet, vix suas liber conclusionemque eu. Ad quo esse purto eros, nemore volutpat ut quo, copiosae concludaturque nam in.
+          </p>
+          <div class="app-popover__separator"></div>
+          <div class="app-popover__text-type-1">Ad est odio noster:</div>
+          <ul class="app-popover__list">
+            <li>Ex vis amet graeci accumsan </li>
+            <li>Civibus iracundia quo adiracundia </li>
+            <li>Eu impetus feugiat civibus qui </li>
+            <li>Mel in mucius argumentum, an accumsan petentium vim </li>
+            <li>Vim at rationibus interesset </li>
+          </ul>
+        </div>
+      </div>
+      <div class="app-popover__form-container">
+        <div class="app-popover__content">
+          <div class="app-popover__form-header">
+            Get Your Foot in the Door.
+          </div>
+          <div class="app-popover__form-subheader">
+            Know the moment our new website goes live.
+          </div>
+          <form class="app-popover__form">
+            <div class="app-popover__form-fields">
+              <input type="text" id="name" name="name" placeholder="Name" aria-label="name" tabindex="0" />
+              <input type="email" id="email" name="email" placeholder="Email" aria-label="email" tabindex="0" />
+              <input type="submit" id="submit" value="Submit" aria-label="submit" tabindex="0" />
+            </div>
+            <label class="app-popover__form-checkbox">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+              <input type="checkbox" checked="checked" tabindex="0" />
+              <span class="app-popover__checkbox"></span>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- script -->
+  <script src="./src/script.js"></script>
+</body>
+
+</html>
